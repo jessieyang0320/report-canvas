@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>Report</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding:0;
+		}
+		.component{
+			width: 50%;
+			height: 40px;
+			margin-bottom: 20px; 
+			background-color: #eee;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="../js/lib/jquery.js"></script> 
+	<script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#h5').fullpage({
+				'sectionsColor': ['red','blue','green','orange'],
+				onLeave: function(index, nextIndex, direction){
+					$('#h5').find('.page').eq(index-1).trigger('onLeave')
+
+				
+				},
+				afterLoad: function(anchorLink, index){
+					$('#h5').find('.page').eq(index-1).trigger('onLoad')
+				},
+			});
+
+		$('.page').on('onLeave',function(){
+			console.log($(this).attr('id'),'==>','onLeave')
+			$(this).find('.component').trigger('onLeave')
+			
+		})
+		$('.page').on('onLoad',function(){
+			console.log($(this).attr('id'),'==>','onLoad')
+			$(this).find('.component').trigger('onLoad')
+			
+		})
+
+		$('.component').on('onLoad',function(){
+			$(this).fadeIn();
+			return false
+		})
+		$('.component').on('onLeave',function(){
+			$(this).fadeOut();
+			return false
+		})
+
+		})
+	</script>
+</head>
+<body> 
+<!-- used for testing fullpage.js, components, animation -->
+
+	<div id="h5">
+		<div class="page section" id="page-1">
+			<div class="component log">logo</div>
+			<div class="component slogan">slogan</div>
+		</div>
+		<div class="page section" id="page-2">
+			<div class="component desc">description</div>
+		</div>
+		<div class="page section" id="page-3">
+			<div class="component bar">bar</div>
+		</div>
+		
+
+
+	</div>
+	
+
+</body>
+</html>
