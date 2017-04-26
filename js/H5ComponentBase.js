@@ -4,9 +4,9 @@ var H5ComponentBase = function(name,cfg){
 	var cfg = cfg || {};
 	var id = ('h5_c_'+Math.random()).replace('.','_');
 	// 把当前组件类型添加到样式中进行标记
-	var cls = ' h5_component_name_'+name+' h5_component_' + cfg.type;
+	var cls = ' h5_component_' + cfg.type;
 
-	var component = $('<div class="h5_component '+cls+'" id="'+id+'">');
+	var component = $('<div class="h5_component '+cls+' h5_component_name_'+name+'" id="'+id+'">');
 
 	cfg.text && component.text(cfg.text);
 	cfg.width && component.width(cfg.width/2);
