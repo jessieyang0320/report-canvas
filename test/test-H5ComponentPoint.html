@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+
+    <title>report</title>
+
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-size: 12px;
+        }
+
+        .iphone{
+            width: 340px;
+            height: 540px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -270px 0 0 -170px;
+        }
+
+    </style>
+
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+<!--引入散点图资源  -->
+	<script type="text/javascript" src="../js/H5ComponentPoint.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentPoint.css">
+
+    <body>
+        <!-- for testing H5ComponentBase basic image and text） -->
+        <div class="iphone">
+
+        </div>
+
+        <script type="text/javascript">
+        	var cfg = {
+        		type : 'point',
+        		data:[
+        			['A',.4,'green'],
+        			['B',.2,'red', 0, -100],
+        			['C',.2,'yellow', 0, 200]
+        		] ,      		
+        		width: 300,
+        		height:300,
+        		css : {
+        			left:50,
+        			bottom:0,
+        			opacity:0
+        		},
+        		animateIn: {bottom:'40%', opacity:1},        		
+        		animateOut: {bottom : 0, opacity:0},
+        		center: true 
+        	}
+
+        	var h5 = new H5ComponentPoint('myName',cfg);
+        	$('.iphone').append(h5);
+
+        	var leave = true;
+        	$('body').click(function(){
+        		leave = !leave;
+        		$('.h5_component').trigger( leave ? 'onLeave' : 'onLoad' ) 
+        	})
+
+
+
+
+        </script>
+
+    </body>
+
+</html>
