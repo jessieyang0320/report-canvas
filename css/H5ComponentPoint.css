@@ -1,0 +1,22 @@
+/* 散点 样式*/
+.point {
+	display: block;
+	background-color: #ccc;
+	position: absolute;
+	border-radius: 50%
+}
+
+.name {
+	height: 30px;
+	width:100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	margin-top: -15px;
+	font-size: 22px;
+
+}
+
+.per {
+	font-size: .5em;
+}
