@@ -4,10 +4,83 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 	<title>Report-Canvas</title>
-
+<!-- load all lib resources -->
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
 	<script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/lib/jquery.fullPage.js"></script>
+
+	<!-- load all H5 Components resources -->
+	<script type="text/javascript">
+
+		var res = ['Base','Bar','Bar_v','Pie','Ring','Polyline','Point','Radar'];
+
+		var html = [];
+		for(s in res){
+			html.push('<script type="text/javascript" src="js/H5Component'+res[s]+'.js"><\/script>');
+		    html.push('<link rel="stylesheet" type="text/css" href="css/H5Component'+res[s]+'.css">');
+
+		}
+
+		document.write(html.join('')); 
+		
+	</script>
+	<!-- load H5 object -->
+	<script type="text/javascript" src="js/H5.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/H5.css">
+	<!-- 页面逻辑的样式  -->
+	<style type="text/css">
+		body {
+			margin:0;
+			padding: 0;
+		}
+	</style>
+
+    <!-- main logic script -->
+	<script type="text/javascript">
+		$(function(){
+
+			var h5 = new H5();
+			h5.addPage('face')
+	 			.addComponent('logo',{
+	 				text: 'logo',
+	 				width: 400,
+	 				height:100,
+	 				css:{backgroundColor: 'red', top:200,opacity:0},
+	 				center:true,
+	 				animateIn: {opacity:1},
+	 				animateOut:{opacity:0}
+
+	 			})
+	 			.addComponent('slogan',{
+	 				text: 'slogan',
+	 				width: 400,
+	 				height:100,
+	 				css:{backgroundColor: 'red', top:300},
+	 				center:true,
+	 			})
+	 		.addPage('desc')
+	 			.addComponent('caption', {
+	 				text:'核心理念',
+	 				width: 400,
+	 				height:100,
+	 				css:{backgroundColor: 'blue', top:300},
+	 				center:true,
+	 			})
+	 	    .addPage('page-3')
+	 			.addComponent('caption',{
+	 				text:'课程方向分布',
+	 			    width: 400,
+	 				height:100,
+	 				css:{backgroundColor: 'orange', top:300},
+	 				center:true,
+	 			})
+	 		.loader()
+
+		} )
+
+
+
+	</script>
 </head>
 <body> 
 	
