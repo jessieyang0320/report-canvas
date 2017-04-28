@@ -21,15 +21,22 @@ var H5ComponentBase = function(name,cfg){
 		})
 	}
 	component.on('onLoad',function(){
-		component.addClass(cls+'_load').removeClass(cls+'_leave');
-		cfg.animateIn && component.animate(cfg.animateIn)
+
+		setTimeout(function(){
+           component.addClass(cls+'_load').removeClass(cls+'_leave');
+		   cfg.animateIn && component.animate(cfg.animateIn)
+
+		},cfg.delay||0)
+		
 		return false
 	})
 	component.on('onLeave',function(){
+	   setTimeout(function(){
 		component.addClass(cls+'_leave').removeClass(cls+'_load');
 		cfg.animateOut && component.animate(cfg.animateOut)
+		},cfg.delay||0)
 		return false
-		return false
+		
 	})
 	return component
 }
