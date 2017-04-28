@@ -65,6 +65,17 @@
 			font-size: 20px;
 			color: #fff;
 		}
+		.h5_component_name_back{
+			top: 30px;
+			-webkit-animation:back 2s inifinite 2s;
+		}
+		@-webkit-keyframes back{
+			50%{ top: 20px; }
+		}
+
+
+
+
 	</style>
 
     <!-- main logic script -->
@@ -72,6 +83,28 @@
 		$(function(){
 
 			var h5 = new H5();
+
+			h5.whenAddPage = function(){
+				this.addComponent('slide_up',{
+					bg: 'imgs/footer.png',
+					css: {
+						left:'0', bottom:'-1px',
+						width:'100%',height:'20px',
+						zIndex: 999},
+					
+					animateIn:{
+						opacity:1,bottom:'-1px'
+					},
+					animateOut:{
+						opacity:0,bottom:'-20px'
+					},
+					delay: 500
+
+					
+
+				})
+			}
+
 			h5
 			.addPage('face')
 	 			.addComponent('logo',{
@@ -164,8 +197,54 @@
 
 
 	 			})
+	 		.addPage('tail')
+	 			.addComponent('logo',{
+	 				center:true,
+	 				width: 359,
+	 				height:129,
+	 				bg: 'imgs/tail_logo.png',
+	 				css:{
+	 					top:210,opacity:0
+	 				}, 
+	 				animateIn:{top:210,opacity:1},
+	 				animateOut:{top:240,opacity:0}
+	 			})
+	 			.addComponent('slogan',{
+	 				center:true,
+	 				width: 314,
+	 				height:46,
+	 				bg: 'imgs/tail_slogan.png',
+	 				css:{
+	 					top:280,opacity:0
+	 				}, 
+	 				animateIn:{left: '50%',opacity:1},
+	 				animateOut:{left: '0%',opacity:0},
+	 				delay:500
+	 			})
+	 			.addComponent('share',{
+	 				
+	 				width: 128,
+	 				height:120,
+	 				bg: 'imgs/tail_share.png',
+	 				css:{
+	 					right: 110,top:240,opacity:0
+	 				}, 
+	 				animateIn:{right:10,top:10,opacity:1},
+	 				animateOut:{right: 110,top:240,opacity:0},
+	 				delay:1000
+	 			})
+	 			.addComponent('back',{
+	 				center:true,
+	 				width: 52,
+	 				height:50,
+	 				bg: 'imgs/tail_back.png',
+	 				onclick : function(){
+	 					$.fn.fullpage.moveTo( 1 );
+	 				}
+	 			})
 
-	 		.loader(2)
+
+	 		.loader(3) 
 
 		} )
 

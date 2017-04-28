@@ -24,8 +24,13 @@ var H5 = function(){
 		if(text != undefined){
 			page.text(text);
 		}
+
 		this.el.append(page);
 		this.page.push(page);
+
+		if (typeof this.whenAddPage === 'function'){
+			this.whenAddPage();
+		}
 		return this;
 
 	}
