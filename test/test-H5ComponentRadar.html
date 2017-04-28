@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+
+    <title>report radar</title>
+
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-size: 12px;
+        }
+
+        .iphone{
+            width: 340px;
+            height: 540px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -270px 0 0 -170px;
+        }
+
+    </style>
+
+    <script type="text/javascript" src="../js/lib/jquery.js"></script>
+    <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+<!--引入雷达图图资源  -->
+	<script type="text/javascript" src="../js/H5ComponentRadar.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/H5ComponentRadar.css">
+
+    <body>
+        <!-- for testing H5ComponentRadar  -->
+        <div class="iphone">
+
+        </div>
+
+        <script type="text/javascript">
+        	var cfg = {
+        		type : 'radar',
+        		data:[
+        			['JS',.9,'blue'],
+        			['HTM',.8],
+        			['CSS3',.7],
+                    ['jquery',.6],
+                    ['Node.js',.5],
+                    ['React',.4],
+                    ['Bootstrap',.3]
+        		],      		
+        		width: 400,
+        		height:400,
+        		css : {
+                    top:100,
+                    opacity:0
+        		},
+        		animateIn: {top:200, opacity:1},        		
+        		animateOut: {top : 100, opacity:0},
+        		center: true 
+        	}
+
+        	var h5 = new H5ComponentRadar('myRadar',cfg);
+        	$('.iphone').append(h5);
+
+        	var leave = true;
+        	$('body').click(function(){
+        		leave = !leave;
+        		$('.h5_component').trigger( leave ? 'onLeave' : 'onLoad' ) 
+        	})
+
+
+
+
+        </script>
+
+    </body>
+
+</html>
