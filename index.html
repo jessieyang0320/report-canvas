@@ -33,6 +33,9 @@
 			margin:0;
 			padding: 0;
 		}
+		.h5_page {
+			background-image: url(imgs/page_bg.png)
+		}
 
 		.h5_page_face{
 			background-image: url(imgs/face_bg.png)
@@ -52,6 +55,16 @@
 			70%{ transform: rotate(0deg) }
 			100%{ transform: rotate(0deg) }
 		}
+
+		.h5_component_name_caption {
+			background-image: url(imgs/page_caption_bg.png);
+			width: 283px;
+			height: 160px;
+			text-align: center;
+			line-height: 140px;
+			font-size: 20px;
+			color: #fff;
+		}
 	</style>
 
     <!-- main logic script -->
@@ -59,7 +72,8 @@
 		$(function(){
 
 			var h5 = new H5();
-			h5.addPage('face')
+			h5
+			.addPage('face')
 	 			.addComponent('logo',{
 	 				center:true,
 	 				width: 395,
@@ -99,8 +113,59 @@
 	 				animateOut:{right:-50, bottom:-50, opacity:0},
 	 				delay: 1000
 	 			})
+	 		.addPage()
+	 			.addComponent('caption', {text:'core concept'})
+	 			.addComponent('text',{
+	 				width: 500,
+	 				height: 30,
+	 				center: true,
+	 				text: 'Only learn useful knowledge',
+	 				css:{
+	 					opacity:0, textAlign:'center', color: 'red', fontSize:'26px'
+	 				},
+	 				animateIn:{opacity:1,top:100},
+	 				animateOut:{opacity:0,top:240}
+	 			})
+	 			.addComponent('description',{
+	 				center: true,
+	 				width: 481,
+	 				height:295,
+	 				bg: 'imgs/description_bg.gif',
+	 				css:{
+	 					opacity:0,
+	 					padding:'15px,10px,10px,10px',
+	 					color: '#fff',
+	 					fontSize: '15px',
+	 					lineHeight: '18px',
+	 					textAlign: 'justify',
+	 					top:240
+	 				},
+	 				text: 'year 2013 blablabalbalbalbalbalbla, a passage',
+	 				animateIn:{
+	 					opacity:1, top:180
+	 				},
+	 				animateOut:{
+	 					opacity:0,top:240
+	 				},
+	 				delay:500
+	 			})
+	 			.addComponent('people',{
+	 				center:true,
+	 				width:515,
+	 				height:305,
+	 				bg: 'imgs/p1_people.png',
+	 				css:{
+	 					opacity:0,
+	 					bottom:0
+	 				},
+	 				delay:1000,
+	 				animateIn:{opacity:1,bottom:40},
+	 				animateOut:{opacity:0,bottom:0}
 
-	 		.loader()
+
+	 			})
+
+	 		.loader(2)
 
 		} )
 
