@@ -65,6 +65,17 @@
 			font-size: 20px;
 			color: #fff;
 		}
+		.h5_component_name_back{
+			top: 30px;
+			-webkit-animation:back 2s inifinite 2s;
+		}
+		@-webkit-keyframes back{
+			50%{ top: 20px; }
+		}
+
+
+
+
 	</style>
 
     <!-- main logic script -->
@@ -72,13 +83,35 @@
 		$(function(){
 
 			var h5 = new H5();
+
+			h5.whenAddPage = function(){
+				this.addComponent('slide_up',{
+					bg: 'imgs/footer2.png',
+					css: {
+						left:'0', bottom:'-1px',
+						width:'100%',height:'20px',
+						zIndex: 999},
+					
+					animateIn:{
+						opacity:1,bottom:'-1px'
+					},
+					animateOut:{
+						opacity:0,bottom:'-20px'
+					},
+					delay: 500
+
+					
+
+				})
+			}
+
 			h5
 			.addPage('face')
 	 			.addComponent('logo',{
 	 				center:true,
 	 				width: 395,
 	 				height:130,
-	 				bg: 'imgs/face_logo.png',
+	 				bg: 'imgs/face_logo2.png',
 	 				css:{opacity:0}, 				
 	 				animateIn: {top:100, opacity:1},
 	 				animateOut:{top:0, opacity:0}
@@ -87,7 +120,7 @@
 	 				center:true,
 	 				width: 365,
 	 				height:99,
-	 				bg: 'imgs/face_slogan.png',
+	 				bg: 'imgs/test.png',
 	 				css:{opacity:0, top:180}, 				
 	 				animateIn: {left:'50%', opacity:1},
 	 				animateOut:{left:'0%', opacity:0},
@@ -114,16 +147,16 @@
 	 				delay: 1000
 	 			})
 	 		.addPage()
-	 			.addComponent('caption', {text:'core concept'})
+	 			.addComponent('caption', {text:'Core Concept'})
 	 			.addComponent('text',{
 	 				width: 500,
 	 				height: 30,
 	 				center: true,
-	 				text: 'Only learn useful knowledge',
+	 				text: 'Largest Online Learning Platform in China',
 	 				css:{
-	 					opacity:0, textAlign:'center', color: 'red', fontSize:'26px'
+	 					opacity:0, textAlign:'center', color: 'red', fontSize:'24px'
 	 				},
-	 				animateIn:{opacity:1,top:100},
+	 				animateIn:{opacity:1,top:150},
 	 				animateOut:{opacity:0,top:240}
 	 			})
 	 			.addComponent('description',{
@@ -140,9 +173,9 @@
 	 					textAlign: 'justify',
 	 					top:240
 	 				},
-	 				text: 'year 2013 blablabalbalbalbalbalbla, a passage',
+	 				text: 'IMOOC provides universal access to courses of latest web development technologies. we partner with top developers from top companies to offer courses online.',
 	 				animateIn:{
-	 					opacity:1, top:180
+	 					opacity:1, top:270
 	 				},
 	 				animateOut:{
 	 					opacity:0,top:240
@@ -164,8 +197,286 @@
 
 
 	 			})
+	 		.addPage('polyline')
+	 			.addComponent('caption', {text:'Course Categories'
 
-	 		.loader(2)
+	 		})
+	 			.addComponent('polyline',{
+	        		type : 'polyline',
+	        		data:[
+	        			['Front-End',.4,'blue'],
+	        			['Back-End',.2],
+	        			['Mobile',.1],
+	                    ['UI/UX',.2],
+	                    ['Data Science',.35],
+	                    ['Image',.05],
+	                    
+	        		],      		
+	        		width: 530,
+	        		height:400,
+	        		css : {
+	                    top:100,
+	                    opacity:0
+	        		},
+	        		animateIn: {top:300, opacity:1},        		
+	        		animateOut: {top : 100, opacity:0},
+	        		center: true 
+        	})
+	 			.addComponent('msg',{
+	 				text: 'Various Course Categories',
+	 				css:{
+	 					opacity:0,top: 180, fontSize:'20px', textAlign: 'center',
+	 					width:'100%', color:'#ff7676'
+	 				},
+	 				animateIn:{opacity:1},
+	 				animateOut:{opacity:0}
+	 			})
+
+
+	 		.addPage('pie')
+	 			.addComponent('caption', {text:'Mobile'})
+	 			.addComponent('pie',{
+	        		type : 'pie',
+	        		data:[
+	        			['Android',.4,'#ff7676'],
+	        			['IOS',.3],
+	        			['Unity',.05],
+	                    ['Cocos2d',.05],
+	                    ['ReactNative',.2],
+	                    
+	        		],      		
+	        		width: 400,
+	        		height:400,
+	        		css : {
+	                    top:100,
+	                    opacity:0
+	        		},
+	        		animateIn: {top:260, opacity:1},        		
+	        		animateOut: {top : 100, opacity:0},
+	        		center: true 
+	        	})
+	        	.addComponent('msg',{
+	 				text: '40+ WebApp Development Courses',
+	 				css:{
+	 					opacity:0,top: 180, textAlign: 'center',
+	 					width:'100%', color:'#ff7676',fontSize:'20px'
+	 				},
+	 				animateIn:{opacity:1},
+	 				animateOut:{opacity:0}
+	 			})
+	 		.addPage('bar')
+	 			.addComponent('caption', {text:'Front-End Courses'})
+	 			.addComponent('bar', {
+	        		type : 'bar',
+	        		data:[
+	        			['JS',.4,'#99c0ff'],
+	        			['HTM',.2],
+	        			['CSS3',.1],
+	                    ['jquery',.2],
+	                    ['Node.js',.35],
+	                    ['React',.05],
+	                    ['Bootstrap',.09]
+	        		],      		
+	        		width: 530,
+	        		height:600,
+	        		css : {
+	                    top:150,
+	                    opacity:0
+	        		},
+	        		animateIn: {top:280, opacity:1},        		
+	        		animateOut: {top : 100, opacity:0},
+	        		center: true 
+	        	})
+	        	.addComponent('msg',{
+	 				text: 'The Most Popular Front-End Technologies',
+	 				css:{
+	 					opacity:0,top: 180, textAlign: 'center',
+	 					width:'100%', color:'#ff7676',fontSize:'20px'
+	 				},
+	 				animateIn:{opacity:1},
+	 				animateOut:{opacity:0}
+	 			})
+	 		.addPage('bar_v')
+	 			.addComponent('caption', {text:'Front-End Courses'})
+	 			.addComponent('bar_v', {
+	        		type : 'bar_v',
+	        		data:[
+	        			['JS',.4,'blue'],
+	        			['HTML',.2],
+	        			['CSS3',.1],
+	                    ['jquery',.2],
+	                    ['Node.js',.35],
+	                    ['React',.05],
+	                    ['Bootstrap',.09]
+	        		],      		
+	        		width: 530,
+	        		height:600,
+	        		css : {
+	        			fontSize: '12px',
+	                    top:100,
+	                    opacity:0
+	        		},
+	        		animateIn: {top:200, opacity:1},        		
+	        		animateOut: {top : 100, opacity:0},
+	        		center: true 
+	        	})
+	        	.addComponent('msg',{
+	 				text: 'Subscribers',
+	 				css:{
+	 					opacity:0,top: 180, textAlign: 'center',
+	 					width:'100%', color:'#ff7676',fontSize:'20px'
+	 				},
+	 				animateIn:{opacity:1},
+	 				animateOut:{opacity:0}
+	 			})
+
+	 		.addPage('radar')
+	 			.addComponent('caption', {text:'Back-End Courses'})
+	 			.addComponent('radar',{
+	        		type : 'radar',
+	        		data:[
+	        			['C',.6,'blue'],
+	        			['PHP',.8],
+	        			['Node.js',.7],
+	                    ['MySQL',.6],
+	                    ['Java',.5],
+	                    ['Yii',.4],
+	                    ['Rails',.3]
+	        		],      		
+	        		width: 400,
+	        		height:400,
+	        		css : {
+	                    top:100,
+	                    opacity:0
+	        		},
+	        		animateIn: {top:280, opacity:1},        		
+	        		animateOut: {top : 100, opacity:0},
+	        		center: true 
+	        	})
+	        	.addComponent('msg',{
+	 				text: '60+ Back-End Development Courses',
+	 				css:{
+	 					opacity:0,top: 180, textAlign: 'center',
+	 					width:'100%', color:'#ff7676',fontSize:'20px'
+	 				},
+	 				animateIn:{opacity:1},
+	 				animateOut:{opacity:0}
+	 			})
+	 		.addPage('ring')
+	 			.addComponent('caption', {text:'Subscriptions'})
+	 			.addComponent('ring-all',{
+	        		type : 'ring',
+	        		data:[['JS',.7,'#ff7676'],],      		
+	        		width: 300,height:300,
+	        		css : {top:150,opacity:0,fontSize:'22px'},
+	        		animateIn: {opacity:1},        		
+	        		animateOut: {opacity:0},
+	        		center: true 
+	        	})
+	        	.addComponent('msg',{
+	 				text: 'Most Popular Courses',
+	 				css:{
+	 					opacity:0,top: 320, textAlign: 'center',
+	 					width:'100%', color:'#ff7676',fontSize:'20px'
+	 				},
+	 				animateIn:{opacity:1},
+	 				animateOut:{opacity:0},
+	 				delay: 1500
+	 			})
+	 			.addComponent('ring-1',{
+	        		type : 'ring',
+	        		data:[['Node',.6,'orange'],],      		
+	        		width: 150,height:150,
+	        		css : {left:40,bottom:110,opacity:0,fontSize:'12px'},
+	        		animateIn: {opacity:1},        		
+	        		animateOut: {opacity:0},
+	        		
+	        	})
+	        	.addComponent('ring-2',{
+	        		type : 'ring',
+	        		data:[['IOS',.65,'blue'],],      		
+	        		width: 150,height:150,
+	        		css : {left:150,bottom:110,opacity:0,fontSize:'12px'},
+	        		animateIn: {opacity:1},        		
+	        		animateOut: {opacity:0},
+	        		
+	        	})
+	        	.addComponent('ring-3',{
+	        		type : 'ring',
+	        		data:[['React',.5,'green'],],      		
+	        		width: 150,height:150,
+	        		css : {left:250,bottom:110,opacity:0,fontSize:'12px'},
+	        		animateIn: {opacity:1},        		
+	        		animateOut: {opacity:0},
+	        		
+	        	})
+	 		.addPage('point')
+	 			.addComponent('caption', {text:'Course Level'})
+	 			.addComponent('point',{
+	        		type : 'point',
+	        		data:[
+	        			['Middle',.4,'#ff7676'],
+	        			['Advanced',.2,'#ffa3a4', 0, '-60%'],
+	        			['Easy',.2,'#99c1ff', 0, '120%']
+	        		] ,      		
+	        		width: 300,
+	        		height:300,
+	        		css : {
+	        			left:50,
+	        			bottom:0,
+	        			opacity:0
+	        		},
+	        		animateIn: {bottom:'40%', opacity:1},        		
+	        		animateOut: {bottom : 0, opacity:0},
+	        		center: true 
+	        	})
+	 		.addPage('tail')
+	 			.addComponent('logo',{
+	 				center:true,
+	 				width: 359,
+	 				height:129,
+	 				bg: 'imgs/tail_logo2.png',
+	 				css:{
+	 					top:210,opacity:0
+	 				}, 
+	 				animateIn:{top:210,opacity:1},
+	 				animateOut:{top:240,opacity:0}
+	 			})
+
+	 			.addComponent('share',{
+	 				
+	 				width: 128,
+	 				height:120,
+	 				bg: 'imgs/tail_share2.png',
+	 				css:{
+	 					right: 110,top:240,opacity:0
+	 				}, 
+	 				animateIn:{right:10,top:10,opacity:1},
+	 				animateOut:{right: 110,top:240,opacity:0},
+	 				delay:1000
+	 			})
+	 			.addComponent('back',{
+	 				center:true,
+	 				width: 52,
+	 				height:50,
+	 				bg: 'imgs/tail_back2.png',
+	 				onclick : function(){
+	 					$.fn.fullpage.moveTo( 1 );
+	 				}
+	 			})
+	 			.addComponent('msg',{
+	 				text: 'Thank You!',
+	 				css:{
+	 					opacity:0,top: 180, textAlign: 'center',
+	 					width:'100%', color:'#ff7676',
+	 					fontSize:'30px'
+	 				},
+	 				animateIn:{opacity:1,top:300,left:10},
+	 				animateOut:{opacity:0}
+	 			})
+
+
+	 		.loader(2) 
 
 		} )
 

@@ -20,6 +20,14 @@ var H5ComponentBase = function(name,cfg){
 			left: '50%'
 		})
 	}
+// 在index页面的back component中定义了一个click function 回到首页，在这里定义
+	if( typeof cfg.onclick === 'function'){
+		component.on('click',cfg.onclick);
+	}
+
+
+
+
 	component.on('onLoad',function(){
 
 		setTimeout(function(){
