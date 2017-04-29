@@ -47,6 +47,28 @@ var H5 = function(){
 			case 'base' :
 			  component = new H5ComponentBase(name,cfg);
 			break;
+			case 'polyline' :
+			  component = new H5ComponentPolyline(name,cfg);
+			break;
+			case 'pie' :
+			  component = new H5ComponentPie(name,cfg);
+			break;
+			case 'ring' :
+			  component = new H5ComponentRing(name,cfg);
+			break;
+			case 'bar' :
+			  component = new H5ComponentBar(name,cfg);
+			break;
+			case 'bar_v' :
+			  component = new H5ComponentBar_v(name,cfg);
+			break;
+			case 'point' :
+			  component = new H5ComponentPoint(name,cfg);
+			break;
+			case 'radar' :
+			  component = new H5ComponentRadar(name,cfg);
+			break;
+
 			default:
 		}
 		page.append(component);

@@ -1,12 +1,12 @@
 /* 散点 样式*/
-.point {
+.h5_component_point .point {
 	display: block;
 	background-color: #ccc;
 	position: absolute;
 	border-radius: 50%
 }
 
-.name {
+.h5_component_point .name {
 	height: 30px;
 	width:100%;
 	text-align: center;
@@ -17,6 +17,6 @@
 
 }
 
-.per {
+.h5_component_point .per {
 	font-size: .5em;
 }

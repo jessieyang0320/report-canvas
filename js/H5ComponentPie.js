@@ -111,9 +111,7 @@ var H5ComponentPie = function(name,cfg){
 //  生长动画
 
  var draw = function(per){
-
- 	
-
+ 	ctx.clearRect(0,0,w,h);
  	ctx.beginPath();
  	ctx.moveTo(r,r);
 
@@ -133,7 +131,6 @@ var H5ComponentPie = function(name,cfg){
  		ctx.clearRect(0,0,w,h);
 
  	}
-
  }
 
 draw(0);
@@ -147,7 +144,7 @@ component.on('onLoad',function(){
 		setTimeout(function(){
 			s+=.01;
 			draw(s);
-		},i*10+500)
+		},i*10)
 	}
 })
 
