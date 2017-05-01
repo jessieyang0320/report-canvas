@@ -1,5 +1,8 @@
 # Report of IMOOC 
 
+checkout: [live demo](https://canvas-report.herokuapp.com/index.html) 
+
+
 This is a WebApp developed with html, css, jquery, fullpage, canvas 
 IMOOC is a online learning platform 
 componentization(quickly generate needed chart with data), animation  
