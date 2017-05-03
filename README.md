@@ -1,11 +1,11 @@
-# Report of IMOOC 
+# Report Template(for phone size screen)
 
 checkout: [live demo](https://canvas-report.herokuapp.com/index.html) 
 
+A report template designed for IMOOC, which is the largest online learning platform for web developers in China. This template is designed based on the concept of componentization and  each type of charts is styled and works individually. With this kind of design, users can quickly generate reports with multi-types of charts and customized style by simply passing data into it.
 
-This is a WebApp developed with html, css, jquery, fullpage, canvas 
-IMOOC is a online learning platform 
-componentization(quickly generate needed chart with data), animation  
+Developed with html, css, jquery, fullpage.js, canvas.js 
+
 
 see chart examples
 
